@@ -2,7 +2,6 @@
 
 **git-contrib-aggregator** is a lightweight tool designed to aggregate all your Git contributions across different Git instances (e.g., GitHub, GitLab) into a single source of truth. The aggregated data can then be used on multiple websites, dashboards, or personal tools. While it is tailored for personal use, it is also suitable for others who want to unify their contribution activity in one place.
 
----
 
 ## Features
 
@@ -14,7 +13,6 @@
 
 > **Note:** GitLab contributions are slightly different than GitHub. For GitLab, the total commits are counted per push, rather than by individual commit events, to match the way the contribution chart is displayed in GitLab. Make sure your GitLab instance supports **API v4**.
 
----
 
 ## Getting Started
 
@@ -24,7 +22,6 @@
 - Docker Compose
 - A `config.toml` file with your GitHub and GitLab PATs (Personal Access Tokens)
 
----
 
 ### Configuration
 

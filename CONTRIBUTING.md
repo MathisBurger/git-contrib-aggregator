@@ -2,7 +2,6 @@
 
 Thank you for considering contributing to **git-contrib-aggregator**! Your contributions help keep this project useful, lightweight, and easy to maintain.
 
----
 
 ## How to Contribute
 
@@ -37,7 +36,6 @@ Thank you for considering contributing to **git-contrib-aggregator**! Your contr
 * Ensure that any new functionality is tested.
 * Existing tests should continue to pass.
 
----
 
 ## Guidelines
 
@@ -45,13 +43,11 @@ Thank you for considering contributing to **git-contrib-aggregator**! Your contr
 * Avoid adding unnecessary bloat.
 * Respect the philosophy of the project: **simple, minimal, and reliable**.
 
----
 
 ## Communication
 
 * Feel free to discuss ideas, questions, or clarifications in the issues section.
 * Be respectful and constructive in all interactions.
 
----
 
 Thank you for helping make **git-contrib-aggregator** better!
