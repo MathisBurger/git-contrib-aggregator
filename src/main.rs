@@ -6,6 +6,7 @@ use std::io::Result;
 mod config;
 mod data_model;
 mod github;
+mod gitlab;
 mod request_handler;
 
 #[actix_web::main]

@@ -2,6 +2,7 @@ use actix_web::{HttpResponse, Responder, get, web::Data};
 
 use crate::{
     config::ServiceConfig, data_model::ContributionsResponse, github::fetch_github_contributions,
+    gitlab::fetch_gitlab_contributions,
 };
 
 #[get("/api/activity")]
@@ -9,6 +10,9 @@ pub async fn handle_request(config: Data<ServiceConfig>) -> impl Responder {
     let mut response = ContributionsResponse::default();
 
     fetch_github_contributions(&config.github_pat, &mut response).await;
+    for gitlabpat in &config.gitlab_pats {
+        fetch_gitlab_contributions(gitlabpat, &mut response).await;
+    }
 
     // TODO: implement github activity retrival
     // TODO: implement gitlab activity retrival
