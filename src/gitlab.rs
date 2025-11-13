@@ -2,7 +2,6 @@ use chrono::Datelike;
 use chrono::Utc;
 use reqwest::Client;
 use serde::Deserialize;
-use std::collections::HashMap;
 
 use crate::{
     config::GitlabPat,
