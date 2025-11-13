@@ -1,0 +1,10 @@
+services:
+  aggregator:
+    image: ghcr.io/MathisBurger/git-contrib-aggregator
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config.toml:/app/config.toml:ro
+    environment:
+      - RUST_LOG=info
+    restart: unless-stopped
