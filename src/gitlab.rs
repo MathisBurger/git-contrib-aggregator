@@ -1,8 +1,7 @@
-use chrono::Datelike;
-use chrono::Utc;
 use reqwest::Client;
 use serde::Deserialize;
 
+use crate::generic::get_date_range;
 use crate::{
     config::GitlabPat,
     data_model::{ContributionsResponse, SourceTypeTotals},
@@ -57,9 +56,7 @@ async fn fetch_paginated_events(client: &Client, url: String, token: &str) -> Ve
 
 pub async fn fetch_gitlab_contributions(pat: &GitlabPat, response: &mut ContributionsResponse) {
     let client = Client::new();
-    let year = Utc::now().year();
-    let from = format!("{}-01-01T00:00:00Z", year);
-    let to = format!("{}-12-31T23:59:59Z", year);
+    let (from, to) = get_date_range();
 
     let user: User = client
         .get(format!("{}/user", pat.uri))

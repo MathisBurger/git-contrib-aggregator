@@ -5,6 +5,7 @@ use std::io::Result;
 
 mod config;
 mod data_model;
+mod generic;
 mod github;
 mod gitlab;
 mod request_handler;

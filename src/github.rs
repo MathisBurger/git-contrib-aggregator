@@ -1,15 +1,15 @@
-use chrono::{Datelike, Utc};
 use reqwest::Client;
 use serde_json::json;
 
-use crate::data_model::{ContributionsResponse, SourceTypeTotals};
+use crate::{
+    data_model::{ContributionsResponse, SourceTypeTotals},
+    generic::get_date_range,
+};
 
 pub async fn fetch_github_contributions(token: &str, result: &mut ContributionsResponse) {
     let client = Client::new();
 
-    let year = Utc::now().year();
-    let from = format!("{year}-01-01T00:00:00Z");
-    let to = format!("{year}-12-31T23:59:59Z");
+    let (from, to) = get_date_range();
 
     let query = r#"
         query($from: DateTime!, $to: DateTime!) {
