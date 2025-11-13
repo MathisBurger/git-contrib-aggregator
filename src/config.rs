@@ -8,6 +8,7 @@ use serde::Deserialize;
 pub struct GitlabPat {
     pub uri: String,
     pub token: String,
+    pub name: String,
 }
 
 #[derive(Debug, Clone, Deserialize)]

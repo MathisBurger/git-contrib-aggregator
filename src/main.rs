@@ -4,6 +4,8 @@ use figment::error::Kind::MissingField;
 use std::io::Result;
 
 mod config;
+mod data_model;
+mod github;
 mod request_handler;
 
 #[actix_web::main]

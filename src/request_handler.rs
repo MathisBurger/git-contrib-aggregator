@@ -1,7 +1,11 @@
-use actix_web::{HttpResponse, Responder, get};
+use actix_web::{HttpResponse, Responder, get, web::Data};
 
-#[get("/activity")]
-pub async fn handle_request() -> impl Responder {
-    // Your implementation here
+use crate::config::ServiceConfig;
+
+#[get("/api/activity")]
+pub async fn handle_request(config: Data<ServiceConfig>) -> impl Responder {
+    // TODO: implement github activity retrival
+    // TODO: implement gitlab activity retrival
+    // TODO: Add caching logic here
     HttpResponse::Ok().body("Hello, World!")
 }
