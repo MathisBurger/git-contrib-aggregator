@@ -61,7 +61,6 @@ pub async fn fetch_gitlab_contributions(pat: &GitlabPat, response: &mut Contribu
     let from = format!("{}-01-01T00:00:00Z", year);
     let to = format!("{}-12-31T23:59:59Z", year);
 
-    // --- Step 1: Fetch user info ---
     let user: User = client
         .get(format!("{}/user", pat.uri))
         .header("PRIVATE-TOKEN", &pat.token)
@@ -74,20 +73,16 @@ pub async fn fetch_gitlab_contributions(pat: &GitlabPat, response: &mut Contribu
 
     println!("Fetching contributions for user: {}", user.username);
 
-    // --- Step 2: Fetch events ---
     let url = format!(
         "{}/users/{}/events?after={}&before={}&per_page=100",
         pat.uri, user.id, from, to
     );
-
     let events = fetch_paginated_events(&client, url, &pat.token).await;
 
-    // Totals
     let mut total_commits = 0;
     let mut total_issues = 0;
     let mut total_mrs = 0;
 
-    // --- Step 3: Aggregate per day ---
     for e in events {
         let date = &e.created_at[..10]; // YYYY-MM-DD
         let mut count = 0;
@@ -122,7 +117,6 @@ pub async fn fetch_gitlab_contributions(pat: &GitlabPat, response: &mut Contribu
         }
     }
 
-    // --- Step 4: Fill totals ---
     response.by_source_total.insert(
         pat.name.clone(),
         SourceTypeTotals {

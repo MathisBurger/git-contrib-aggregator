@@ -637,6 +637,7 @@ dependencies = [
  "actix-web",
  "chrono",
  "figment",
+ "once_cell",
  "reqwest",
  "serde",
  "serde_json",
