@@ -15,7 +15,7 @@ pub struct GitlabPat {
 pub struct ServiceConfig {
     #[serde(alias = "CACHE_TTL")]
     pub cache_ttl: u64,
-    pub github_pat: Option<String>,
+    pub github_pat: String,
     pub gitlab_pats: Vec<GitlabPat>,
 }
 
